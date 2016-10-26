@@ -5,8 +5,10 @@ MQTT_BrokerPort = 1883
 MQTT_ClientID = "esp-001"
 MQTT_Client_user = "user"
 MQTT_Client_password = "password"
-DHT_PIN = 7 -- задаем пин первого датчика влажности
-DHT_PIN2 = 5 -- задаем пин первого датчика влажности
+DHT_PIN = 2 -- задаем пин первого датчика влажности
+DHT_PIN2 = 1 -- задаем пин первого датчика влажности
+--HSPI_PIN = 
+
 
 wifi.setmode(wifi.STATION)
 wifi.sta.config(WIFI_SSID, WIFI_PASS)
@@ -15,6 +17,10 @@ wifi.sta.connect()
 local wifi_status_old = 0
 
 tmr.alarm(0, 5000, 1, function()
+
+
+
+                    
     print("tmr0 "..wifi_status_old.." "..wifi.sta.status())
 
     if wifi.sta.status() == 5 then -- подключение есть
@@ -39,7 +45,7 @@ tmr.alarm(0, 5000, 1, function()
              package.loaded.UL=nil
 
              -- Выводим результат работы модуля ds18Init
-                    local ds18 = require "ds18Init"(6,3)
+                    local ds18 = require "ds18Init"(4,3)
                     package.loaded.ds18=nil
 
                m:on("message", function(client, topic, data)
@@ -50,10 +56,10 @@ tmr.alarm(0, 5000, 1, function()
                     end)      
 
                 tmr.alarm(1, 30000, 1, function()
-
+                  
                   
                     -- читаем данные измерения температуры
-                    local ds19 = require "ds18run" (6)
+                    local ds19 = require "ds18run" (4)
                     package.loaded.ds19=nil
 
                     -- публикуем данные
@@ -67,6 +73,10 @@ tmr.alarm(0, 5000, 1, function()
                     -- Делаем измерения с второго датчика влажности, публикуем их на брокере
                     local dht = require "read_public_dht" (DHT_PIN2,2)
                     package.loaded.dht=nil
+
+                      ---посылаем по спи значение 
+                    local spi = require "spi_send" (temp[1]/100)
+                    package.loaded.spi=nil
 
                   
                 end)
