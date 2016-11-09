@@ -46,6 +46,8 @@ local function run(pin)
       tmr.wdclr()
       j=j+1
   end
+
+                   
       DS18_START=1
       ow.reset(pin)
       ow.write(pin,0xCC,1)

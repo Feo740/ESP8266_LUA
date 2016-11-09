@@ -7,6 +7,8 @@ MQTT_Client_user = "user"
 MQTT_Client_password = "password"
 DHT_PIN = 2 -- задаем пин первого датчика влажности
 DHT_PIN2 = 1 -- задаем пин первого датчика влажности
+pwm1=0
+pwm2=0
 --HSPI_PIN = 
 
 
@@ -43,27 +45,27 @@ tmr.alarm(0, 5000, 1, function()
 -- подписываемся на топики
              local UL= require "UL1" ()
              package.loaded.UL=nil
-
+ 
              -- Выводим результат работы модуля ds18Init
-                    local ds18 = require "ds18Init"(4,3)
+                    local ds18 = require "ds18Init"(4,4)
                     package.loaded.ds18=nil
 
                m:on("message", function(client, topic, data)
                     if data ~= nil then
                     local uplim= require "uplim1" (topic,data)
                     package.loaded.uplim=nil
-                    end
+                         end
                     end)      
 
                 tmr.alarm(1, 30000, 1, function()
-                  
-                  
+                   
+                   
                     -- читаем данные измерения температуры
                     local ds19 = require "ds18run" (4)
                     package.loaded.ds19=nil
 
                     -- публикуем данные
-                    local ds20 = require "ds18_pub" (3)
+                    local ds20 = require "ds18_pub" (4)
                     package.loaded.ds20=nil
               	--***************************************************			 
                     -- Делаем измерения с первого датчика влажности, публикуем их на брокере
@@ -74,8 +76,12 @@ tmr.alarm(0, 5000, 1, function()
                     local dht = require "read_public_dht" (DHT_PIN2,2)
                     package.loaded.dht=nil
 
-                      ---посылаем по спи значение 
-                    local spi = require "spi_send" (temp[1]/100)
+                    --считаем значение pwm1 и pwm2
+                    local p1 = require "pwm_calc" ()
+                    package.loaded.p1=nil
+                  
+                     --посылаем по спи значение 
+                    local spi = require "spi_send" (pwm1,pwm2)
                     package.loaded.spi=nil
 
                   
