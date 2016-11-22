@@ -1,6 +1,6 @@
 WIFI_SSID = "feo"
 WIFI_PASS = "bk0o-zjn9-nkvx"
-MQTT_BrokerIP = "192.168.0.106"
+MQTT_BrokerIP = "192.168.0.105"
 MQTT_BrokerPort = 1883
 MQTT_ClientID = "esp-001"
 MQTT_Client_user = "user"
@@ -9,6 +9,7 @@ DHT_PIN = 2 -- задаем пин первого датчика влажнос�
 DHT_PIN2 = 1 -- задаем пин первого датчика влажности
 pwm1=0
 pwm2=0
+flap1=0
 --HSPI_PIN = 
 
 
@@ -81,7 +82,7 @@ tmr.alarm(0, 5000, 1, function()
                     package.loaded.p1=nil
                   
                      --посылаем по спи значение 
-                    local spi = require "spi_send" (pwm1,pwm2)
+                    local spi = require "spi_send" (pwm1,pwm2,flap1)
                     package.loaded.spi=nil
 
                   

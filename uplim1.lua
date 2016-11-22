@@ -18,6 +18,11 @@ do
      ll2=tonumber(data) -- глоб перем нижний лимит первого этажа
      print("Lowlimit2="..ll2)
         end
+      if (topic == '/ESP/flap_1') then
+     flap1=tonumber(data) -- глоб перем открытия заслонки 1
+     print("flap_1="..flap1)
+        end
+        
       if (ul1~=nil and ul2~=nil and ll1~=nil and ll2~=nil) then
                 local agvTemp1=(temp[1]+temp[2])/200 --на 200 а не на 2, т.к. temp - сдвинута на 2 разряда точка
                 local agvTemp2=(temp[3]+temp[4])/200 --на 200 а не на 2, т.к. temp - сдвинута на 2 разряда точка
