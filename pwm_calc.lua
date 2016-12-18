@@ -1,4 +1,4 @@
-local T = {}
+local T = {} 
 do
   local function srednee()
       if (ul1~=nil and ul2~=nil and ll1~=nil and ll2~=nil) then

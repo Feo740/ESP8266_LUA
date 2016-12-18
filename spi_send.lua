@@ -1,4 +1,4 @@
-local T = {}
+local T = {} 
 do
   local function spi_send(pwm1,pwm2,flap1)
     spi.setup(1, spi.MASTER, spi.CPOL_LOW, spi.CPHA_LOW, 16, 80);

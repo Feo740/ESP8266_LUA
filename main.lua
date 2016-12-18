@@ -1,4 +1,4 @@
-WIFI_SSID = "feo"
+WIFI_SSID = "feo"  
 WIFI_PASS = "bk0o-zjn9-nkvx"
 MQTT_BrokerIP = "192.168.0.105"
 MQTT_BrokerPort = 1883
@@ -26,7 +26,7 @@ tmr.alarm(0, 5000, 1, function()
                     
     print("tmr0 "..wifi_status_old.." "..wifi.sta.status())
 
-    if wifi.sta.status() == 5 then -- подключение есть
+    if wifi.sta.status() == 5 then  -- подключение есть
         if wifi_status_old ~= 5 then -- Произошло подключение к Wifi, IP получен
             print(wifi.sta.getip())
 
@@ -78,8 +78,8 @@ tmr.alarm(0, 5000, 1, function()
                     package.loaded.dht=nil
 
                     --считаем значение pwm1 и pwm2
-                    local p1 = require "pwm_calc" ()
-                    package.loaded.p1=nil
+                   -- local p1 = require "pwm_calc" ()
+                   -- package.loaded.p1=nil
                   
                      --посылаем по спи значение 
                     local spi = require "spi_send" (pwm1,pwm2,flap1)

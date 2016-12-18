@@ -1,4 +1,4 @@
-local d
+local d 
 do
     local function dht_read_public (pin,cd)
     local status,temp,humi,temp_decimal,humi_decimal = dht.read(pin)

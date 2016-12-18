@@ -1,5 +1,5 @@
 local T = {}
-do
+do 
   local function ds18_pub(cd)
     for i=1,cd do
                    local adr=DS18_ADDR[i]
