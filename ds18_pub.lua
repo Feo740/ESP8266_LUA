@@ -1,7 +1,7 @@
 local T = {}
 do 
   local function ds18_pub(cd)
-    for i=1,cd do
+    for i=1,(cd+1) do
                    local adr=DS18_ADDR[i]
                    print("№ ",i," ADRR= ",adr:byte(1,8))
                    if (temp[i]) then

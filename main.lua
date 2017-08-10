@@ -1,12 +1,13 @@
 WIFI_SSID = "feo"  
 WIFI_PASS = "bk0o-zjn9-nkvx"
-MQTT_BrokerIP = "192.168.0.105"
+MQTT_BrokerIP = "192.168.0.102"
 MQTT_BrokerPort = 1883
 MQTT_ClientID = "esp-001"
 MQTT_Client_user = "user"
 MQTT_Client_password = "password"
 DHT_PIN = 2 -- задаем пин первого датчика влажности
 DHT_PIN2 = 1 -- задаем пин первого датчика влажности
+FLAME_MODULE = 3 -- задаем пин на котором висит датчик пламени
 pwm1=0
 pwm2=0
 flap1=0
@@ -68,7 +69,12 @@ tmr.alarm(0, 5000, 1, function()
                     -- публикуем данные
                     local ds20 = require "ds18_pub" (4)
                     package.loaded.ds20=nil
-              	--***************************************************			 
+              	--***************************************************
+                    -- читаем состояние датчика пламени
+                    local ds21 = require "flame_module_read" (2)
+                    package.loaded.ds21=nil
+                 --********************************************************   
+                              
                     -- Делаем измерения с первого датчика влажности, публикуем их на брокере
                     local dht = require "read_public_dht" (DHT_PIN,1)
                     package.loaded.dht=nil
