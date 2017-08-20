@@ -1,0 +1,1 @@
+https://nodemcu.readthedocs.io/en/master/en/modules/gpio/    ******** таблица соответствия портов

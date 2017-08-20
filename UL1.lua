@@ -11,6 +11,7 @@ do
     m:subscribe("/ESP/Stop_vent_2_floor",0, function(conn) print("subscribe success Stop_vent_1_floor") end)
     m:subscribe("/ESP/100%floor1",0, function(conn) print("subscribe success 100%floor1") end)
     m:subscribe("/ESP/100%floor2",0, function(conn) print("subscribe success 100%floor2") end)
+    m:subscribe("/ESP/Burner_status",0, function(conn) print("subscribe success Burner status") end)
     
         end
    

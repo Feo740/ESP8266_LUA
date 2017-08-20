@@ -11,7 +11,7 @@ do
     print('spi_send ')
     -- отправляем положение заслонки
     spi.set_mosi(1,0,8,flap1)  --spi.set_mosi(id, offset, bitlen, data1[, data2[, ..., datan]])
-    spi.transaction(1,0,0,8,3,8,0,0) --spi.transaction(id, cmd_bitlen, cmd_data, addr_bitlen, addr_data, mosi_bitlen, dummy_bitlen, miso_bitlen)
+    spi.transaction(1,0,0,8,4,8,0,0) --spi.transaction(id, cmd_bitlen, cmd_data, addr_bitlen, addr_data, mosi_bitlen, dummy_bitlen, miso_bitlen)
     print('spi_send ')
     
         end

@@ -39,8 +39,12 @@ do
     Stop_trotlle2=tonumber(data) -- глоб перем 1 или 0 выключение вентиляторов. Для второго этажа.
     print("Stop_trotlle2="..Stop_trotlle2) 
         end 
-
+      if (topic == '/ESP/Burner_status') then
+    Burner_status=tonumber(data) -- глобальная переменная 1 или 0 вкл/выкл горелку.
+    print("Burner_status="..Burner_status) 
     
+        end
+        
         
         
     if (ul1~=nil and ul2~=nil and ll1~=nil and ll2~=nil and full_trotlle1~=nil and full_trotlle2~=nil and Stop_trotlle1~=nil and Stop_trotlle2~=nil) then

@@ -10,11 +10,11 @@ do
                 print("agvTemp1="..agvTemp1)
                 print("pwm1="..pwm1)
                 elseif  (agvTemp1>ul1) then
-                pwm1=100
+                pwm1=255
                 print("agvTemp1="..agvTemp1)
                 print("pwm1="..pwm1)
                 elseif (agvTemp1<ul1 and agvTemp1>ll1) then
-                pwm1=math.ceil(100*(agvTemp1-ll1)/(ul1-ll1))
+                pwm1=math.ceil(255*(agvTemp1-ll1)/(ul1-ll1))
                         ---if (pwm1<10) then pwm1=0 end -- вентиляторы не стартуют при заполнении менее 10%
                 print("agvTemp1="..agvTemp1)
                 print("pwm1="..pwm1)
@@ -25,11 +25,11 @@ do
                 print("agvTemp2="..agvTemp2)
                 print("pwm2="..pwm2)
                 elseif  (agvTemp2>ul2) then
-                pwm2=100
+                pwm2=255
                 print("agvTemp2="..agvTemp2)
                 print("pwm2="..pwm2)
                 elseif (agvTemp2<ul2 and agvTemp2>ll2) then
-                pwm2=math.ceil(100*(agvTemp2-ll2)/(ul2-ll2))
+                pwm2=math.ceil(255*(agvTemp2-ll2)/(ul2-ll2))
                         --if (pwm2<10) then pwm2=0 end -- вентиляторы не стартуют при заполнении менее 10%
                 print("agvTemp2="..agvTemp2)
                 print("pwm2="..pwm2)

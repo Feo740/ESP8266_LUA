@@ -1,6 +1,6 @@
 WIFI_SSID = "feo"  
 WIFI_PASS = "bk0o-zjn9-nkvx"
-MQTT_BrokerIP = "192.168.0.102"
+MQTT_BrokerIP = "192.168.0.105"
 MQTT_BrokerPort = 1883
 MQTT_ClientID = "esp-001"
 MQTT_Client_user = "user"
@@ -11,6 +11,8 @@ FLAME_MODULE = 3 -- задаем пин на котором висит датч�
 pwm1=0
 pwm2=0
 flap1=0
+gpio.mode(3,gpio.OUTPUT) -- выбрали третий пин для старта розжига горелки
+gpio.write(3,gpio.LOW)
 --HSPI_PIN = 
 
 
